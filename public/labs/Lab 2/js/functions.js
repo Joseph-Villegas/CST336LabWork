@@ -23,6 +23,14 @@ guessField.focus();
 
 function checkGuess() {
     var userGuess = Number(guessField.value);
+
+    if (userGuess < 1 || userGuess > 99) {
+        console.log("invalid guess!");
+        lastResult.innerHTML = 'Invalid Guess!';
+        lastResult.style.backgroundColor = 'red';
+        return;
+    }
+
     if (guessCount == 1) {
         guesses.innerHTML = 'Previous guesses: ';
         gamesWon.innerHTML = 'Games won: ' + gWon;
