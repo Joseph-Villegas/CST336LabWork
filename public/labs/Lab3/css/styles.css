@@ -1,0 +1,34 @@
+.bg-info {
+    background-color: lightblue!important;
+}
+.open-hidden {
+    display: none;
+}
+.btn-over {
+    background-color: white !important;
+    color: black !important;
+    border: 1px lightgray solid;
+}
+.default {
+    color: gray;
+}
+label {
+    display: inline-block;
+}
+form {
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+    flex-direction: column;
+}
+form label h5 {
+    text-align: center;
+}
+.dropdown-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.question-head {
+    text-align: center;
+}
