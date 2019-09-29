@@ -1,6 +1,9 @@
-
-.bg-info {
-    background-color: lightblue!important;
+html, body, footer {
+    width: 100%;
+    text-align: center;
+}
+footer {
+    margin-top: 20px;
 }
 .open-hidden {
     display: none;
@@ -32,4 +35,32 @@ form label h5 {
 }
 .question-head {
     text-align: center;
+}
+.question-foot {
+    width: 100%;
+}
+.checkboxes > label {
+    padding-right: 10px;
+}
+.q5-selected {
+    background-color: yellow;
+}
+.form-group {
+    margin-bottom: 50px !important;
+}
+.alert-success {
+    background-color: #86e29b !important;
+}
+.bg-info-color {
+    background-color: #C5E6F8 !important;
+}
+.info-box {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    flex-direction: column;
+}
+.img-container {
+    display: flex;
+    justify-content: center;
 }
