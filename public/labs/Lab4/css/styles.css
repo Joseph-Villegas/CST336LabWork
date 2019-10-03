@@ -1,0 +1,13 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    color:black;
+    font-family: "Times New Roman", Times, serif;
+    -webkit-animation: mymove 5s infinite;
+     animation: mymove 5s infinite;
+}
+
+@-webkit-keyframes mymove {
+  from {background-color: red;}
+  to {background-color: blue;}
+}
