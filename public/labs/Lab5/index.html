@@ -10,6 +10,32 @@
         <h1>Pixabay Image Search</h1>
         
         Keyword: <input type="text" name="keyword"><br>
-        Orientation:
+        
+        Orientation: 
+        <select id="orientation" name="state">
+            <option value="">Select One</option>
+            <option value="Horizontal">Horizontal</option>
+            <option value="Verticle">Verticle</option>
+        </select>
+        
+        <span><button>Search</button></span><br>
+        
+        <hr>
+        
+        <div id="likesDisplay">
+            <span id="img1Likes">Likes: ?</span>
+            <span id="img2Likes">Likes: ?</span>
+            <span id="img3Likes">Likes: ?</span>
+            <span id="img4Likes">Likes: ?</span>
+        </div>
+        
+        <div id="imageDisplay">
+            <span id="img1">img1</span>
+            <span id="img2">img2</span>
+            <span id="img3">img3</span>
+            <span id="img4">img4</span>
+        </div>
+        
+        <script src="js/functions.js"></script>
     </body>
 </html>
