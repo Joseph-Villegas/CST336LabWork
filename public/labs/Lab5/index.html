@@ -9,16 +9,16 @@
     <body>
         <h1>Pixabay Image Search</h1>
         
-        Keyword: <input type="text" name="keyword"><br>
+        Keyword: <input type="text" name="keyword" id="query"><br>
         
         Orientation: 
         <select id="orientation" name="state">
             <option value="">Select One</option>
             <option value="Horizontal">Horizontal</option>
-            <option value="Verticle">Verticle</option>
+            <option value="Vertical">Vertical</option>
         </select>
         
-        <span><button>Search</button></span><br>
+        <span><button id="search">Search</button></span><br>
         
         <hr>
         
@@ -30,10 +30,10 @@
         </div>
         
         <div id="imageDisplay">
-            <span id="img1">img1</span>
-            <span id="img2">img2</span>
-            <span id="img3">img3</span>
-            <span id="img4">img4</span>
+            <img id="img1"/>
+            <img id="img2"/>
+            <img id="img3"/>
+            <img id="img4"/>
         </div>
 
         <script src="js/functions.js"></script>
