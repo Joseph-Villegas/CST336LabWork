@@ -9,7 +9,9 @@ html, body {
     justify-content: space-around;
 }
 img {
+    justify-content:space-between;
     max-width: 25%;
     height: auto;
     flex: 1;
+    border-radius: 25px;
 }
