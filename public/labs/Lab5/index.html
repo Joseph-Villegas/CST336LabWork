@@ -9,25 +9,26 @@
     <body>
         <h1>Pixabay Image Search</h1>
         
-        Keyword: <input type="text" name="keyword" id="query"><br>
+        Keyword: <input type="text" name="keyword" placeholder="Search in Images.." id="query"><br>
         
         Orientation: 
-        <select id="orientation" name="state">
+        <select id="orientation">
             <option value="">Select One</option>
             <option value="Horizontal">Horizontal</option>
             <option value="Vertical">Vertical</option>
         </select>
         
-        <span><button id="search">Search</button></span><br>
+       <button id="search">Search</button>
 
         <hr>
         
-        <!--<div id="likesDisplay">-->
-        <!--    <span id="img1Likes">Likes: ?</span>-->
-        <!--    <span id="img2Likes">Likes: ?</span>-->
-        <!--    <span id="img3Likes">Likes: ?</span>-->
-        <!--    <span id="img4Likes">Likes: ?</span>-->
-        <!--</div>-->
+        <div id="likesDisplay">
+            <span id="img1Likes"></span>
+            <span id="img2Likes"></span>
+            <span id="img3Likes"></span>
+            <span id="img4Likes"></span>
+        </div>
+        
         
         <div id="imageDisplay">
             <img id="img1"/>
