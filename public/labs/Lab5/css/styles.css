@@ -7,3 +7,11 @@ html, body {
 span {
     border: 1px solid black;
 }
+#imageDisplay {
+    display: flex;
+}
+img {
+    max-width: 25%;
+    height: auto;
+    flex: 1;
+}
