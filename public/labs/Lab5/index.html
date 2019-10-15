@@ -9,7 +9,7 @@
     <body>
         <h1>Pixabay Image Search</h1>
         
-        Keyword: <input type="text" name="keyword"><br>
+        Keyword: <input type="text" id="keyword"><br>
         
         Orientation: 
         <select id="orientation" name="state">
@@ -18,22 +18,37 @@
             <option value="Verticle">Verticle</option>
         </select>
         
-        <span><button>Search</button></span><br>
+        <button id="search">Search</button><br>
         
         <hr>
         
-        <div id="likesDisplay">
-            <span id="img1Likes">Likes: ?</span>
-            <span id="img2Likes">Likes: ?</span>
-            <span id="img3Likes">Likes: ?</span>
-            <span id="img4Likes">Likes: ?</span>
-        </div>
+        <!--<div id="likesDisplay">-->
+        <!--    <span id="img1Likes">Likes: ?</span>-->
+        <!--    <span id="img2Likes">Likes: ?</span>-->
+        <!--    <span id="img3Likes">Likes: ?</span>-->
+        <!--    <span id="img4Likes">Likes: ?</span>-->
+        <!--</div>-->
         
-        <div id="imageDisplay">
-            <span id="img1">img1</span>
-            <span id="img2">img2</span>
-            <span id="img3">img3</span>
-            <span id="img4">img4</span>
+        <!--<div id="imageDisplay">-->
+        <!--    <span id="img1">img1</span>-->
+        <!--    <span id="img2">img2</span>-->
+        <!--    <span id="img3">img3</span>-->
+        <!--    <span id="img4">img4</span>-->
+        <!--    <img src="" class="q5-img" id="s1">-->
+        <!--</div>-->
+        <div class="row">
+          <div class="column">
+            <img src="" id="img1" style="width:100%">
+          </div>
+          <div class="column">
+            <img src="" id="img2" style="width:100%">
+          </div>
+          <div class="column">
+            <img src="" id="img3" style="width:100%">
+          </div>
+          <div class="column">
+            <img src="" id="img4" style="width:100%">
+          </div>
         </div>
 
         <script src="js/functions.js"></script>
