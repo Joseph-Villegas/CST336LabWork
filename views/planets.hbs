@@ -1,0 +1,36 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script>
+        planet = "{{name}}";
+    </script>
+</head>
+<body>
+{{> header}}
+<div id="content">
+    <h1>{{name}}</h1>
+    <img id="planet-pic" src="{{image}}">
+    <table>
+        <tr>
+            <td>Area</td>
+            <td>Density</td>
+            <td>Day Length</td>
+            <td>Temperature</td>
+        </tr>
+        <tr>
+            <td>{{stats.area}}</td>
+            <td>{{stats.density}}</td>
+            <td>{{stats.day_length}}</td>
+            <td>{{stats.temperature}}</td>
+        </tr>
+    </table>
+    <p>{{wiki}}</p>
+</div>
+{{> footer}}
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script src="./scripts/script.js"></script>
+</body>
+</html>
