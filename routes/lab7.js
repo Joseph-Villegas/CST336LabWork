@@ -3,7 +3,6 @@ var router = express.Router();
 const request = require("request");
 
 
-
 router.get("/", async function(req, res) {
     let parsedData = await getImages("otters", "horizontal");
     res.render("lab7/search", {
