@@ -10,8 +10,6 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var lab_6_router = require('./routes/labs/6/index');
 
-var lab_7_router = require('./routes/labs/7/index');
-
 
 var app = express();
 
@@ -29,7 +27,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/labs/6', lab_6_router);
-app.use('/labs/7', lab_7_router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
