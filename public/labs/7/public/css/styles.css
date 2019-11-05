@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Style the search field */
+input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 60%;
+  background: #f1f1f1;
+}
+
+/* Style the orientation field */
+select {
+  float: left;
+  width: 20%;
+  padding: 10.5px;
+  background: #f1f1f1;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+}
+
+/* Style the submit button */
+button {
+  float: left;
+  width: 20%;
+  padding: 9.9px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0b7dda;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+#imageDisplay, #likesDisplay {
+    display: flex;
+    justify-content: space-around;
+}
+
+img {
+   justify-content:space-between;
+    max-width: 25%;
+    height: auto;
+    flex: 1;
+    border-radius: 25px;
+}

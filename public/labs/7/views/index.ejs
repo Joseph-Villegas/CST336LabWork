@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+    
+    <head>
+        
+        <title>Lab 7</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link href="css/styles.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+    </head>
+    
+    <body>
+        
+        <h1> Pixabay Search (Express Version) </h1>
+        
+        <form action="/results">
+        
+            <div id="searchBar" style="margin:auto;max-width:800px">
+              <input type="text" name="keyword" placeholder="Search in Images.." value="otters" id="keyword" required>
+              <select name="orientation" required>
+                  <option value="">Select One</option>
+                  <option value="horizontal" selected>Horizontal</option>
+                  <option value="vertical">Vertical</option>
+              </select>
+              <button type="submit" id="submit"><i class="fa fa-search"></i></button>
+            </div>  
+            
+            <br><br><hr>
+            
+            <div id="likesDisplay">
+                <span><%=images.hits[0].likes%></span>
+                <span><%=images.hits[1].likes%></span>
+                <span><%=images.hits[2].likes%></span>
+                <span><%=images.hits[3].likes%></span>
+            </div>
+            
+            <div id="imageDisplay">
+                <img src='<%=images.hits[0].largeImageURL%>'>
+                <img src='<%=images.hits[1].largeImageURL%>'>
+                <img src='<%=images.hits[2].largeImageURL%>'>
+                <img src='<%=images.hits[3].largeImageURL%>'>
+            </div>
+            
+        </form>
+        
+    </body>
+    
+</html>
