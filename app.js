@@ -3,12 +3,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var hbs_express = require('express-handlebars');
+
 var hbs = require('hbs');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var lab_6_router = require('./routes/labs/6/index');
+var lab_7_router = require('./routes/lab7');
+
 
 
 var app = express();
@@ -27,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/labs/6', lab_6_router);
-
+app.use('/lab7', lab_7_router);
 
 
 // catch 404 and forward to error handler
