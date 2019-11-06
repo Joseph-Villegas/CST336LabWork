@@ -2,10 +2,9 @@ var express = require('express');
 var router = express.Router();
 const request = require("request");
 
-
 router.get("/", async function(req, res) {
     let parsedData = await getImages("otters", "horizontal");
-    res.render("lab7/search", {
+    res.render("7/search", {
         image1: { 
             pic: parsedData.hits[0].largeImageURL,  
             likes: parsedData.hits[0].likes
@@ -33,7 +32,7 @@ router.get("/results", async function(req, res) {
     let keyword = req.query.keyword;
     let orientation = req.query.orientation;
     let parsedData = await getImages(keyword, orientation);
-    res.render("lab7/results", {
+    res.render("7/results", {
         image1: { 
             pic: parsedData.hits[0].largeImageURL,  
             likes: parsedData.hits[0].likes
@@ -59,8 +58,9 @@ router.get("/results", async function(req, res) {
 
 // returns all data from Pixabay API in JSON format
 function getImages(keyword, orientation) {
+    console.log(keyword, orientation);
     return new Promise(function(resolve, reject){
-        request("https://pixabay.com/api/?key=13859719-acf946e9bc6f552b8006fcd5f&q="+keyword+"&orientation"+orientation, function(error, response, body){
+        request("https://pixabay.com/api/?key=13859719-acf946e9bc6f552b8006fcd5f&q="+keyword+"&orientation="+orientation, function(error, response, body){
             if(!error && response.statusCode == 200) {
                 let parsedData = JSON.parse(body);
                 resolve(parsedData);

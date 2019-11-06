@@ -49,12 +49,13 @@ html, body {
 #imageDisplay, #likesDisplay {
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 img {
    justify-content:space-between;
     max-width: 25%;
-    height: auto;
+    object-fit: scale-down;
     flex: 1;
     border-radius: 25px;
 }
