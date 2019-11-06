@@ -34,7 +34,7 @@ router.get("/results", async function(req, res) {
     let keyword = req.query.keyword;
     let orientation = req.query.orientation;
     let parsedData = await getImages(keyword, orientation);
-    res.render("lab7/results", {
+    res.render("results", {
         image1: { 
             pic: parsedData.hits[0].largeImageURL,  
             likes: parsedData.hits[0].likes
