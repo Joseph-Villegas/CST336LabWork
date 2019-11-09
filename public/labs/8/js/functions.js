@@ -16,16 +16,16 @@ $(document).ready(function() {
        $(this).css("background", "rgb(255, 255, 0)");
     });
     
-    displayQ4Choices();
+    displayQ3Choices();
     
     //Functions
-    function displayQ4Choices() {
-       let q4ChoicesArray = ["Maine", "Rhode Island", "Maryland", "Delaware"];
-       q4ChoicesArray = _.shuffle(q4ChoicesArray);
+    function displayQ3Choices() {
+       let q3ChoicesArray = ["Maine", "Rhode Island", "Maryland", "Delaware"];
+       q3ChoicesArray = _.shuffle(q3ChoicesArray);
        
-       for (let i = 0; i < q4ChoicesArray.length; i++) {
-           $("#q4Choices").append(`<input type="radio" name="q4" id="${q4ChoicesArray[i]}"
-             value="${q4ChoicesArray[i]}"> <label for="${q4ChoicesArray[i]}"> ${q4ChoicesArray[i]} </label>`);
+       for (let i = 0; i < q3ChoicesArray.length; i++) {
+           $("#q3Choices").append(`<input type="radio" name="q3" id="${q3ChoicesArray[i]}"
+             value="${q3ChoicesArray[i]}"> <label for="${q3ChoicesArray[i]}"> ${q3ChoicesArray[i]} </label>`);
        }
     }
     
