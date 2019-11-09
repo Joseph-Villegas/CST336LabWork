@@ -1,0 +1,66 @@
+html, body, footer {
+    width: 100%;
+    text-align: center;
+}
+header {
+    background-image: url("https://www.gsihealth.com/wp-content/uploads/2018/09/Banner-California-1024x316.png");
+}
+.open-hidden {
+    display: none;
+}
+.btn-over {
+    background-color: white !important;
+    color: black !important;
+    border: 1px lightgray solid;
+}
+.default {
+    color: gray;
+}
+label {
+    display: inline-block;
+}
+form {
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+    flex-direction: column;
+}
+form label h5 {
+    text-align: center;
+}
+.dropdown-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.question-head {
+    text-align: center;
+}
+.question-foot {
+    width: 100%;
+}
+.checkboxes > label {
+    padding-right: 10px;
+}
+.q5-selected {
+    background-color: yellow;
+}
+.form-group {
+    margin-bottom: 50px !important;
+}
+.alert-success {
+    background-color: #86e29b !important;
+}
+.bg-info-color {
+    background-color: #C5E6F8 !important;
+}
+.info-box {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    flex-direction: column;
+}
+.img-container {
+    display: flex;
+    justify-content: center;
+}

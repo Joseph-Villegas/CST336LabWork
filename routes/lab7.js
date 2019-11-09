@@ -4,7 +4,7 @@ const request = require("request");
 
 router.get("/", async function(req, res) {
     let parsedData = await getImages("otters", "horizontal");
-    res.render("7/search", {
+    res.render("8/search", {
         image1: { 
             pic: parsedData.hits[0].largeImageURL,  
             likes: parsedData.hits[0].likes
@@ -32,7 +32,7 @@ router.get("/results", async function(req, res) {
     let keyword = req.query.keyword;
     let orientation = req.query.orientation;
     let parsedData = await getImages(keyword, orientation);
-    res.render("7/results", {
+    res.render("8/results", {
         image1: { 
             pic: parsedData.hits[0].largeImageURL,  
             likes: parsedData.hits[0].likes
