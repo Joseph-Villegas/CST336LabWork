@@ -13,19 +13,19 @@ router.get('/grade', function(req, res, next) {
    let q5 = req.query["Q5"];
 
     //Question 1...
-    R1 = q1.toLowerCase() === "sacramento";
+    R1 = q1 === "sacramento";
 
     //Question 2...
-    R2 =  q2.toLowerCase() === "missouri";
+    R2 = q2 === "missouri";
 
     //Question 4...
-    R3 = q3.toLowerCase() === "Rhode Island";
+    R3 = q3 === "Rhode Island";
 
     //Question 4...
-    R4 = q4.toLowerCase() === "cd";
+    R4 = q4 === "cd";
 
     //Question 5...
-    R5 = q5.toLowerCase() === "s2";
+    R5 = q5 === "s2";
 
     points = 0;
 
