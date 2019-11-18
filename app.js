@@ -11,6 +11,7 @@ var usersRouter = require('./routes/users');
 var lab_6_router = require('./routes/labs/6/index');
 var lab_8_router = require('./routes/labs/8/index');
 var lab_7_router = require('./routes/lab7');
+var lab_9_Router = require('./public/labs/9/router');
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.use('/users', usersRouter);
 app.use('/labs/6', lab_6_router);
 app.use('/labs/7', lab_7_router);
 app.use('/labs/8', lab_8_router);
+app.use('/labs/9', lab_9_Router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

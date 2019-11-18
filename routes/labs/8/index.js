@@ -13,21 +13,21 @@ router.get('/grade', function(req, res, next) {
    let q5 = req.query["Q5"];
 
     //Question 1...
-    R1 = q1 === "sacramento";
+    let R1 = q1 == "sacramento";
 
     //Question 2...
-    R2 = q2 === "missouri";
+    let R2 = q2 == "missouri";
 
     //Question 3...
-    R3 = q3 === "Rhode Island";
+    let  R3 = q3 == "Rhode Island";
 
     //Question 4...
-    R4 = q4 === "cd";
+    let R4 = q4 == "cd";
 
     //Question 5...
-    R5 = q5 === "s2";
+   let  R5 = q5 == "s2";
 
-    points = 0;
+    var points = 0;
 
     if (R1) {
         points += 20;
@@ -49,9 +49,9 @@ router.get('/grade', function(req, res, next) {
         points += 20;
     }
 
-    HB = points >= 80; // has b
+    let HB = points >= 80; // has b
 
-    resp = {
+    let resp = {
         "R1": R1,
         "R2": R2,
         "R3": R3,

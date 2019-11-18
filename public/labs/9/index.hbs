@@ -1,0 +1,219 @@
+<html>
+
+    <head>
+      <title>{{title}}</title>
+      <link href="css/styles.css" rel="stylesheet" type="text/css" />
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    
+    <body>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        
+        <h1>{{title}}</h1>
+        
+        <div id="searchBar" style="margin:auto;max-width:800px">
+        
+            <input type="text" name="k" placeholder="Search in Quotes..." id="keyword">
+            
+            <select name="searchBy" id="searchBy">
+                <option value="" selected>Select One</option>
+                <option value="keyword">keyword</option>
+                <option value="category">category</option>
+                <option value="name">author's name</option>
+                <option value="gender">gender</option>
+            </select>
+            
+            <select name="category" id="category">
+                <option value="" selected>Select One</option>
+                {{#each category}}
+                <option value="{{category}}">{{category}}</option>
+                {{/each}}
+            </select>
+            
+            <button type="submit" id="submit"><i class="fa fa-search"></i></button>
+        
+        </div>  
+        
+        
+        <br><br>
+        
+        <div id="validationFdbk"></div>
+        
+        <hr>
+    
+        <p style="padding-left: 15px">Let's see some quotes...</p>
+        
+        <div class="container-fluid" style="margin-top: 10px"></div>
+        
+        <div class="modal fade" id="authorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal_title"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                            <div class="modal-body"></div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        
+        <script>
+        
+            $(document).ready(function() {
+                $("#keyword").focus;
+                $("#category").hide();
+            });
+            
+            let keywordNeeded = true;
+            
+            $("#searchBy").on("change", function(e) {
+                let searchBy = $("#searchBy").val();
+                if(searchBy == "category"){
+                    $("#category").show();
+                    document.querySelector('#keyword').value = '';
+                    $('input:text').attr('placeholder','No keyword needed');
+                    document.querySelector('#keyword').disabled = true;
+                    keywordNeeded = false;
+                } else {
+                    $("#category").hide();
+                    document.querySelector('#keyword').disabled = false;
+                    $('input:text').attr('placeholder','Search in quotes...')
+                    keywordNeeded = true;
+                }
+            });
+            
+            function validateSearch() {
+                if ($("#keyword").val() == "" && keywordNeeded) {
+                    $("#validationFdbk").html("Please fill field: Keyword").show();
+                    $("#validationFdbk").attr("class", "alert alert-danger mt-3");
+                    document.getElementById("validationFdbk").style.textAlign = "center";
+                    return false;
+                }
+                
+                if ($("#searchBy").val() == "") {
+                    $("#validationFdbk").html("Please fill field: Search By...").show();
+                    $("#validationFdbk").attr("class", "alert alert-danger mt-3");
+                    document.getElementById("validationFdbk").style.textAlign = "center";
+                    return false;
+                }
+                
+                if($("#searchBy").val() == "category"){
+                    
+                    if($("#category").val() == "") {
+                        $("#validationFdbk").html("Please fill field: Category").show();
+                        $("#validationFdbk").attr("class", "alert alert-danger mt-3");
+                        document.getElementById("validationFdbk").style.textAlign = "center";
+                        return false;
+                   }
+                } 
+                
+                return true;
+            }
+            
+            var DBResults = [];
+            function showModal(author) {
+                $(".modal-title").empty();
+                $(".modal-body").empty();
+                
+                $(".modal-title").html(`${DBResults[author].fullName}`);
+                
+                $(`<div>
+                       <div><strong>Author's Name:</strong> ${DBResults[author].fullName}</div>
+                       <img src="${DBResults[author].portrait}" height="100" width="100">
+                       <div><strong>DOB:</strong> ${DBResults[author].dob.split("T", 1)}</div>
+                       <div><strong>DOD:</strong> ${DBResults[author].dod.split("T", 1)}</div>
+                       <div><strong>Profession:</strong> ${DBResults[author].profession}</div>
+                       <div><strong>Biography:</strong>
+                           <div>${DBResults[author].biography}</div>
+                       </div>
+                   </div>`).appendTo(".modal-body"); 
+                
+                $('#authorModal').modal('show');
+            }
+            
+            $("#submit").on("click", function(e){
+                $("#validationFdbk").html("").hide();
+        
+                if (!validateSearch()) {
+                    return;
+                }
+                
+                $.ajax({
+                    url: "/labs/9/quotes",
+                    method: "post",
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        search: {
+                             "keyword": $("#keyword").val(),
+                            "searchBy": $("#searchBy").val(),
+                            "category": $("#category").val()
+                        }
+                    }),
+                    dataType: "json",
+                    success: function(result){
+                        //resets page to defaults
+                        document.querySelector('#keyword').value = '';
+                        $('input:text').attr('placeholder','Search in quotes...');
+                        keywordNeeded = true;
+                        document.querySelector('#keyword').disabled = false;
+                        $("#keyword").focus;
+                        $("#searchBy").prop('selectedIndex', 0);
+                        $("#category").prop('selectedIndex', 0);
+                        $("#category").hide();
+                        $(".container-fluid").empty();
+                        
+                        DBResults = result.quotes;
+                        
+                        if(result.quotes.length == 0) {
+                            $("#validationFdbk").html("No results found :^(").show();
+                            $("#validationFdbk").attr("class", "alert alert-danger mt-3");
+                            document.getElementById("validationFdbk").style.textAlign = "center";
+                            return;
+                        }
+                        
+                        //set quotes table head
+                        $(`<div class="table-row header">
+                            <div class="text" style="width: 20%">Name</div>
+                            <div class="text" style="width: 80%">Quote</div>
+                        </div>`).appendTo(".container-fluid"); 
+                        
+                        //populate quotes table
+                        for (let i = 0; i < result.quotes.length; i++) {
+                            $(`<div class="table-row">
+                                   <div id="name${i}" class="text" style="width: 20%" onclick="showModal('${i}')">
+                                       ${result.quotes[i].fullName}
+                                   </div>
+                                   <div class="text" style="width: 80%">${result.quotes[i].quote}</div>
+                               </div>`).appendTo(".container-fluid"); 
+                        }
+                    },
+                    error: function(xhr, status) {
+                        console.log("error calling to POST router", status);
+                    }
+                });
+            });
+            
+        </script>
+        
+    </body>
+
+</html>
+
+
+
+
+
+
+   
+    
