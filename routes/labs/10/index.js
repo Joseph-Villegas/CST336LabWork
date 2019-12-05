@@ -21,7 +21,7 @@ router.get('/quotes', function(req, res) {
         if (error) throw error;
         
         res.render('10/quotes', {
-            title: 'Lab 9',
+            title: 'Lab 10',
             category: results
         });
     });
