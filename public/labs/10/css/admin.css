@@ -1,0 +1,31 @@
+th {
+    padding: 10px 20px 10px 20px
+}
+tr {
+    border-bottom: 1px solid black;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: -webkit-gradient(linear, left top, left bottom, from(#d5adc8), to(#ff8489)) fixed;
+    overflow: hidden;
+}
+#container {
+    padding: 20px;
+    width: 60%;
+    height: 80%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    background-color: white;
+    border-radius: 5px;
+}
+#title {
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+table {
+    width: 100%;
+}

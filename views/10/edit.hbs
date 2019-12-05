@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/edit.css" rel="stylesheet" type="text/css" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css" integrity="sha256-bLNUHzSMEvxBhoysBE7EXYlIrmo7+n7F4oJra1IgOaM=" crossorigin="anonymous" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+</head>
+<body>
+    <h1 id="title">
+        {{#if editting}}
+
+        Editting Author with ID {{id}}
+
+        {{else}}
+
+        Creating new Author with ID {{id}}
+
+        {{/if}}
+    </h1>
+    <div id="container">
+        <form id="form">
+            <div class="form-group">
+                <label for="fn">First Name</label>
+                <input class="form-control" id="fn" placeholder="John" value="{{info.firstName}}">
+            </div>
+
+            <div class="form-group">
+                <label for="ln">Last Name</label>
+                <input class="form-control" id="ln" placeholder="Doe" value="{{info.lastName}}">
+            </div>
+            
+            <div class="form-group"> 
+                <label class="control-label" for="dob">Date of Birth</label>
+                <input class="form-control" id="dob" name="date" placeholder="MM/DD/YYY" type="text" value="{{info.dob}}"/>
+            </div>
+
+            <div class="form-group"> 
+                <label class="control-label" for="dod">Date of Death</label>
+                <input class="form-control" id="dod" name="date" placeholder="MM/DD/YYY" type="text" value="{{info.dod}}"/>
+            </div>
+
+             <div class="form-group">
+                <label for="gender">Gender</label>
+                <select class="form-control" id="gender">
+                    <option {{#unless info.sex}} selected {{/unless}}>Male</option>
+                    <option {{#if info.sex}} selected {{/if}}>Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    
+    <script>
+        $(document).ready(function(){
+            var date_input=$('input[name="date"]'); //our date input has the name "date"
+            var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+            date_input.datepicker({
+                format: 'mm/dd/yyyy',
+                container: container,
+                todayHighlight: true,
+                autoclose: true,
+            })
+        })
+        
+        $("#form").submit(function(event) {
+            if (checkInputs()) {
+                window.location.replace(`./submit?editting={{editting}}&id={{id}}&firstName=${$("#fn").val()}&lastName=${$("#ln").val()}&dob=${$("#dob").val()}&dod=${$("#dod").val()}&sex=${$('#gender :selected').text() == "Male" ? "M" : "F"}`);
+            } else {
+                alert("Please Fill in all inputs!");
+            }
+            event.preventDefault();
+        });
+
+        function checkInputs() {
+            let has_firstName = $("#fn").val() != "";
+            let has_lastName = $("#ln").val() != "";
+            let has_dob = $("#dob").val() != "";
+            let has_dod = $("#dod").val() != "";
+            let has_gender = $('#gender :selected').text() == "Male";
+
+            return has_firstName && has_lastName && has_dob && has_dod && has_gender;
+        }
+
+
+    </script>
+</body>
+</html>

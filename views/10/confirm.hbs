@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/confirm.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="container">
+        <h1>Are you sure you would like to delete {{firstName}} {{lastName}}?</h1>
+        <div>
+            <input type="button" onclick="location.href='./delete?Id={{id}}&confirmed=true';" value="Delete"/>
+            <input type="button" onclick="location.href='./admin';" value="Cancel"/>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <link href="css/admin.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <input id="login-button" type="button" onclick="location.href='./logout';" value="Logout"/>
+        <h1 id="title">Authors Admin Page</h1>
+        <div id="container">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>DOB</th>
+                    <th>DOD</th>
+                    <th></th>
+                    <th>
+                        <input type="button" onclick="location.href='./edit?type=new';" value="New"/>
+                    </th>
+                </tr>
+                {{#authors}}
+                    <tr>
+                        <th>{{authorId}}</th>
+                        <th>{{firstName}}</th>
+                        <th>{{lastName}}</th>
+                        <th>{{dob}}</th>
+                        <th>{{dod}}</th>
+                        <th>
+                            <input type="button" onclick="location.href='./delete?Id={{authorId}}';" value="Delete"/>
+                        </th>
+                        <th>
+                            <input type="button" onclick="location.href='./edit?type=edit&Id={{authorId}}';" value="Edit"/>
+                        </th>
+                    </tr>
+                {{/authors}}
+            </table>
+    </body>
+    </div>
+</html>

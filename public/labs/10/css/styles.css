@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Style the search field */
+input[type=text] {
+  padding: 9.4px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 40%;
+  background: #f1f1f1;
+}
+
+/* Style the orientation field */
+select {
+  float: left;
+  width: 20%;
+  padding: 10.5px;
+  background: #f1f1f1;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+}
+
+/* Style the submit button */
+button {
+  float: left;
+  width: 20%;
+  padding: 9.9px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0b7dda;
+}
+
+h1 {
+  text-align:center;
+}
+
+/*// Main container: initialize the flex, direction is row*/
+.table-row {
+  display: flex;           display: -webkit-flex;
+  flex-direction: row;     -webkit-flex-direction: row;
+  flex-grow: 0;            -webkit-flex-grow: 0;
+  flex-wrap: wrap;         -webkit-flex-wrap: wrap;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/*Text based cells: grow, truncate and show ellipsis when there is not enough space*/
+.text {
+  flex-grow: 1;            -webkit-flex-grow: 1;
+  overflow: auto;
+  /*overflow: auto; truncates when not enough space*/
+  white-space: nowrap;
+  /*text-overflow: ellipsis; show ellipsis when there is not enough space*/
+  text-overflow: initial;
+  padding-right: 20px;
+}
+
+/*Fix the minimum width of the leaf level cells*/
+.text {
+  width: 180px;
+}
+
+.table-row {
+  border-bottom: 2px solid #e0e0e0;
+  border-collapse: collapse;
+  padding-top: 5px;
+}
+
+.table-row.header {
+  background-color: #FFEEDB;
+  font-weight: bold;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+#login-button {
+  float: right;
+}

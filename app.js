@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require('express-session');
 
 var hbs = require('hbs');
 
@@ -12,8 +13,12 @@ var lab_6_router = require('./routes/labs/6/index');
 var lab_8_router = require('./routes/labs/8/index');
 var lab_7_router = require('./routes/lab7');
 var lab_9_Router = require('./public/labs/9/router');
+var lab_10_router = require('./routes/labs/10');
 
 var app = express();
+
+app.use(cookieParser());
+app.use(session({secret: "Lol"}));
 
 hbs.registerPartials(__dirname + '/views/partials');
 // view engine setup
@@ -32,6 +37,7 @@ app.use('/labs/6', lab_6_router);
 app.use('/labs/7', lab_7_router);
 app.use('/labs/8', lab_8_router);
 app.use('/labs/9', lab_9_Router);
+app.use('/labs/10', lab_10_router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
